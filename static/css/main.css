@@ -1,0 +1,38 @@
+body {
+    margin: 0;
+    font-family: sans-serif;
+    height: max-content;
+    color: black;
+    background-image: url("download.jpg");
+    background-size: contain;
+}
+
+.content {
+    text-align: center;
+}
+
+input [type='file'] {
+    display: none;
+}
+
+.upload_button {
+    padding: 8px;
+    padding-left: 10px;
+    padding-right: 10px;
+    border-radius: 20px;
+}
+
+.choose_button {
+    padding: 8px;
+    padding-left: 10px;
+    padding-right: 10px;
+    border-radius: 20px;
+}
+
+.revert {
+    color: aliceblue;
+}
+
+.desc {
+    color: azure;
+}

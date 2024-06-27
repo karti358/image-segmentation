@@ -1,0 +1,40 @@
+{% extends 'base.html' %}
+
+{% block head %}
+{% endblock %}
+
+{% block body %}
+<div class='content'>
+    <h1>Semantic Segmentation</h1>
+    <h4 class="desc">Upload from your device the video you want segmented and get the segmented video.</h4>
+    <p>
+        {% with messages = get_flashed_messages() %}
+        {% if messages %}
+    <ul>
+        {% for message in messages %}
+        <li> {{ message }} </li>
+        {% endfor %}
+    </ul>
+    {% endif %}
+    {% endwith %}
+    </p>
+
+    <form action="/" method="post" enctype="multipart/form-data">
+        <input class="choose_button" type="file" name="file" autocomplete="off" required>
+        <input class="upload_button" type="submit" value="Upload">
+    </form>
+
+    {% if filename %}
+    <div>
+        <video autoplay='autoplay' controls='controls' preload='preload'>
+            <source src="{{ url_for('display_uploaded', filename = filename) }}" type="video/mp4">
+        </video>
+        <video autoplay='autoplay' controls='controls' preload='preload'>
+            <source src="{{ url_for('display_segmented', filename = filename) }}" type="video/mp4">
+        </video>
+    </div>
+    {% endif %}
+
+    <a class="revert" href="{{ url_for('upload_page') }}">Go Back Home..</a>
+</div>
+{% endblock %}
